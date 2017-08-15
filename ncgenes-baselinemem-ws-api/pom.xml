@@ -44,7 +44,7 @@
           <instructions>
             <Private-Package />
 	    <Import-Package>*</Import-Package>
-            <Export-Package>edu.unc.mapseq.ws.ncgenes.baseline*</Export-Package>
+            <Export-Package>edu.unc.mapseq.ws.ncgenes.baselinemem*</Export-Package>
           </instructions>
         </configuration>
       </plugin>

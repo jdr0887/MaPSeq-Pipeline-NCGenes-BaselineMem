@@ -42,7 +42,7 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Export-Package>edu.unc.mapseq.messaging.ncgenes.baseline*</Export-Package>
+            <Export-Package>edu.unc.mapseq.messaging.ncgenes.baselinemem*</Export-Package>
             <Import-Package>*</Import-Package>
             <Private-Package />
           </instructions>

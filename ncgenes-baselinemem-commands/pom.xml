@@ -89,9 +89,9 @@
         <artifactId>maven-bundle-plugin</artifactId>
         <configuration>
           <instructions>
-            <Export-Package>edu.unc.mapseq.commands.ncgenes.baseline*</Export-Package>
+            <Export-Package>edu.unc.mapseq.commands.ncgenes.baselinemem*</Export-Package>
             <Import-Package>*</Import-Package>
-	    <Karaf-Commands>edu.unc.mapseq.commands.ncgenes.baseline</Karaf-Commands>	    
+	    <Karaf-Commands>edu.unc.mapseq.commands.ncgenes.baselinemem</Karaf-Commands>	    
           </instructions>
         </configuration>
       </plugin>
