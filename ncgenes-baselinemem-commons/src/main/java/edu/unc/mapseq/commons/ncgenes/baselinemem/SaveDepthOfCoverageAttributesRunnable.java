@@ -1,4 +1,4 @@
-package edu.unc.mapseq.commons.ncgenes.baseline;
+package edu.unc.mapseq.commons.ncgenes.baselinemem;
 
 import java.io.BufferedReader;
 import java.io.File;

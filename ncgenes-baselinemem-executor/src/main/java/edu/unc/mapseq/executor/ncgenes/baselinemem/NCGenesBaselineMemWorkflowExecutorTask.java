@@ -1,4 +1,4 @@
-package edu.unc.mapseq.executor.ncgenes.baseline;
+package edu.unc.mapseq.executor.ncgenes.baselinemem;
 
 import java.util.Date;
 import java.util.List;
@@ -20,7 +20,7 @@ import edu.unc.mapseq.dao.model.WorkflowSystemType;
 import edu.unc.mapseq.workflow.WorkflowBeanService;
 import edu.unc.mapseq.workflow.WorkflowExecutor;
 import edu.unc.mapseq.workflow.WorkflowTPE;
-import edu.unc.mapseq.workflow.ncgenes.baseline.NCGenesBaselineMemWorkflow;
+import edu.unc.mapseq.workflow.ncgenes.baselinemem.NCGenesBaselineMemWorkflow;
 
 public class NCGenesBaselineMemWorkflowExecutorTask extends TimerTask {
 

@@ -1,4 +1,4 @@
-package edu.unc.mapseq.ws.ncgenes.baseline;
+package edu.unc.mapseq.ws.ncgenes.baselinemem;
 
 import javax.xml.bind.annotation.XmlAccessType;
 import javax.xml.bind.annotation.XmlAccessorType;

@@ -1,4 +1,4 @@
-package edu.unc.mapseq.ws.ncgenes.baseline.impl;
+package edu.unc.mapseq.ws.ncgenes.baselinemem.impl;
 
 import java.io.File;
 import java.io.IOException;
@@ -23,8 +23,8 @@ import edu.unc.mapseq.dao.model.MimeType;
 import edu.unc.mapseq.dao.model.Sample;
 import edu.unc.mapseq.dao.model.Workflow;
 import edu.unc.mapseq.workflow.sequencing.SequencingWorkflowUtil;
-import edu.unc.mapseq.ws.ncgenes.baseline.NCGenesBaselineMemService;
-import edu.unc.mapseq.ws.ncgenes.baseline.QualityControlInfo;
+import edu.unc.mapseq.ws.ncgenes.baselinemem.NCGenesBaselineMemService;
+import edu.unc.mapseq.ws.ncgenes.baselinemem.QualityControlInfo;
 
 public class NCGenesBaselineMemServiceImpl implements NCGenesBaselineMemService {
 

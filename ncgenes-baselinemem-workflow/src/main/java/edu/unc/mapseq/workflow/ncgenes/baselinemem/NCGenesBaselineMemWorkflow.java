@@ -1,4 +1,4 @@
-package edu.unc.mapseq.workflow.ncgenes.baseline;
+package edu.unc.mapseq.workflow.ncgenes.baselinemem;
 
 import java.io.File;
 import java.util.Iterator;
@@ -18,10 +18,10 @@ import org.renci.jlrm.condor.CondorJobEdge;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.unc.mapseq.commons.ncgenes.baseline.RegisterToIRODSRunnable;
-import edu.unc.mapseq.commons.ncgenes.baseline.SaveDepthOfCoverageAttributesRunnable;
-import edu.unc.mapseq.commons.ncgenes.baseline.SaveFlagstatAttributesRunnable;
-import edu.unc.mapseq.commons.ncgenes.baseline.SaveMarkDuplicatesAttributesRunnable;
+import edu.unc.mapseq.commons.ncgenes.baselinemem.RegisterToIRODSRunnable;
+import edu.unc.mapseq.commons.ncgenes.baselinemem.SaveDepthOfCoverageAttributesRunnable;
+import edu.unc.mapseq.commons.ncgenes.baselinemem.SaveFlagstatAttributesRunnable;
+import edu.unc.mapseq.commons.ncgenes.baselinemem.SaveMarkDuplicatesAttributesRunnable;
 import edu.unc.mapseq.dao.model.Attribute;
 import edu.unc.mapseq.dao.model.Flowcell;
 import edu.unc.mapseq.dao.model.Sample;

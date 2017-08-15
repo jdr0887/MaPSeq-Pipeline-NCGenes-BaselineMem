@@ -1,4 +1,4 @@
-package edu.unc.mapseq.commands.ncgenes.baseline;
+package edu.unc.mapseq.commands.ncgenes.baselinemem;
 
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
@@ -11,7 +11,7 @@ import org.apache.karaf.shell.api.action.lifecycle.Service;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import edu.unc.mapseq.commons.ncgenes.baseline.SaveFlagstatAttributesRunnable;
+import edu.unc.mapseq.commons.ncgenes.baselinemem.SaveFlagstatAttributesRunnable;
 import edu.unc.mapseq.dao.MaPSeqDAOBeanService;
 import edu.unc.mapseq.dao.model.WorkflowRunAttempt;
 

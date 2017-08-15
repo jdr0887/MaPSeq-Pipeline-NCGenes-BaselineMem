@@ -1,4 +1,4 @@
-package edu.unc.mapseq.executor.ncgenes.baseline;
+package edu.unc.mapseq.executor.ncgenes.baselinemem;
 
 import java.util.Timer;
 

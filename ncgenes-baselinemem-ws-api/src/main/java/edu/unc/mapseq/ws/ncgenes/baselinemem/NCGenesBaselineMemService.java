@@ -1,4 +1,4 @@
-package edu.unc.mapseq.ws.ncgenes.baseline;
+package edu.unc.mapseq.ws.ncgenes.baselinemem;
 
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
@@ -17,7 +17,7 @@ import javax.xml.ws.BindingType;
 import org.renci.vcf.VCFResult;
 
 @BindingType(value = javax.xml.ws.soap.SOAPBinding.SOAP11HTTP_BINDING)
-@WebService(targetNamespace = "http://baseline.ncgenes.ws.mapseq.unc.edu", serviceName = "NCGenesBaselineMemService", portName = "NCGenesBaselineMemPort")
+@WebService(targetNamespace = "http://baselinemem.ncgenes.ws.mapseq.unc.edu", serviceName = "NCGenesBaselineMemService", portName = "NCGenesBaselineMemPort")
 @SOAPBinding(style = Style.DOCUMENT, use = Use.LITERAL, parameterStyle = SOAPBinding.ParameterStyle.WRAPPED)
 @Path("/NCGenesBaselineMemService/")
 @Consumes(MediaType.APPLICATION_JSON)

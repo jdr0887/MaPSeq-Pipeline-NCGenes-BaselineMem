@@ -1,4 +1,4 @@
-package edu.unc.mapseq.commands.ncgenes.baseline;
+package edu.unc.mapseq.commands.ncgenes.baselinemem;
 
 import java.io.IOException;
 import java.io.StringWriter;

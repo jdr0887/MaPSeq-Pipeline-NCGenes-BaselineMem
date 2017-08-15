@@ -1,4 +1,4 @@
-package edu.unc.mapseq.messaging.ncgenes.baseline;
+package edu.unc.mapseq.messaging.ncgenes.baselinemem;
 
 import java.io.IOException;
 import java.util.List;

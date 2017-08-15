@@ -1,4 +1,4 @@
-package edu.unc.mapseq.messaging.ncgenes.baseline;
+package edu.unc.mapseq.messaging.ncgenes.baselinemem;
 
 import javax.jms.Connection;
 import javax.jms.ConnectionFactory;

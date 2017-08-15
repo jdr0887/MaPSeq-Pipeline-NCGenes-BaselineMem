@@ -27,8 +27,8 @@ import org.renci.vcf.VCFLine;
 import org.renci.vcf.VCFParser;
 import org.renci.vcf.VCFResult;
 
-import edu.unc.mapseq.ws.ncgenes.baseline.NCGenesBaselineMemService;
-import edu.unc.mapseq.ws.ncgenes.baseline.QualityControlInfo;
+import edu.unc.mapseq.ws.ncgenes.baselinemem.NCGenesBaselineMemService;
+import edu.unc.mapseq.ws.ncgenes.baselinemem.QualityControlInfo;
 
 public class NCGenesBaselineMemServiceTest {
 
