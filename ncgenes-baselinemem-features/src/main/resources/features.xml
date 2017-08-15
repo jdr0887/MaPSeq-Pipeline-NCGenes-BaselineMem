@@ -1,0 +1,18 @@
+<features name="mapseq-pipeline-ncgenes-baselinemem-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.2.0">
+
+  <feature name="mapseq-pipeline-ncgenes-baselinemem" version="${project.version}" resolver="(obr)">
+    <bundle>mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-commons/${project.version}</bundle>
+    <bundle>mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-workflow/${project.version}</bundle>
+    <bundle>mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-commands/${project.version}</bundle>
+    <bundle>mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-ws-api/${project.version}</bundle>
+    <bundle>mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-ws-impl/${project.version}</bundle>
+    <bundle start-level="100">mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-executor/${project.version}</bundle>
+    <bundle start-level="100">mvn:edu.unc.mapseq.pipelines.ncgenes-baselinemem/ncgenes-baselinemem-messaging/${project.version}</bundle>
+  </feature>
+
+</features>
+
+
+
+
+

@@ -1,0 +1,7 @@
+.classpath
+.project
+.settings
+src/main/resources/edu/unc/mapseq/workflow/ncgenes/baseline/workflow.properties
+target
+tmp
+var

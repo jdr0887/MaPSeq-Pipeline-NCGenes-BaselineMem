@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <parent>
+    <groupId>edu.unc.mapseq</groupId>
+    <artifactId>pipeline</artifactId>
+    <version>0.6.77</version>
+  </parent>
+  <name>MaPSeq :: Pipelines :: NCGenes :: BaselineMem</name>
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>edu.unc.mapseq.pipelines</groupId>
+  <artifactId>ncgenes-baselinemem</artifactId>
+  <version>0.6.45-SNAPSHOT</version>
+  <packaging>pom</packaging>
+  <url>https://jdr0887.github.io/MaPSeq-Pipeline-NCGenes-BaselineMem</url>
+  <properties>
+    <maven.site.plugin.skip>false</maven.site.plugin.skip>    
+  </properties>    
+  <organization>
+    <name>RENCI</name>
+    <url>http://www.renci.org/</url>
+  </organization>            
+  <issueManagement>
+    <system>GitHub Issues</system>
+    <url>https://github.com/jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem/issues</url>
+  </issueManagement>
+  <licenses>    
+    <license>
+      <name>UNC Open Source Public License</name>
+      <url>LICENSE</url>
+      <distribution>repo</distribution>
+    </license>
+  </licenses>
+  <scm>
+    <url>https://github.com/jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem</url>
+    <developerConnection>scm:git:git@github.com:jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem.git</developerConnection>
+    <connection>scm:git:git@github.com:jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem.git</connection>
+    <tag>HEAD</tag>
+  </scm>
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+	<groupId>org.renci</groupId>
+	<artifactId>vcf-parser</artifactId>
+      	<version>0.0.3</version>
+      </dependency>
+      <dependency>
+      	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
+      	<artifactId>ncgenes-baselinemem-ws-api</artifactId>
+      	<version>0.6.45-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
+	<artifactId>ncgenes-baselinemem-commons</artifactId>
+	<version>0.6.45-SNAPSHOT</version>
+      </dependency>
+      <dependency>
+      	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
+      	<artifactId>ncgenes-baselinemem-workflow</artifactId>
+      	<version>0.6.45-SNAPSHOT</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+  <modules>
+    <module>ncgenes-baselinemem-commons</module>
+    <module>ncgenes-baselinemem-workflow</module>
+    <module>ncgenes-baselinemem-executor</module>
+    <module>ncgenes-baselinemem-commands</module>
+    <module>ncgenes-baselinemem-features</module>
+    <module>ncgenes-baselinemem-ws-api</module>
+    <module>ncgenes-baselinemem-ws-impl</module>    
+    <module>ncgenes-baselinemem-messaging</module>
+  </modules>
+</project>

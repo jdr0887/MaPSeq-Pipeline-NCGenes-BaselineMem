@@ -1,0 +1,6 @@
+edu.unc.mapseq.commands.ncgenes.baseline.RegisterAllToIRODSAction
+edu.unc.mapseq.commands.ncgenes.baseline.RegisterToIRODSAction
+edu.unc.mapseq.commands.ncgenes.baseline.RunWorkflowAction
+edu.unc.mapseq.commands.ncgenes.baseline.SaveDepthOfCoverageAttributesAction
+edu.unc.mapseq.commands.ncgenes.baseline.SaveFlagstatAttributesAction
+edu.unc.mapseq.commands.ncgenes.baseline.SaveMarkDuplicatesAttributesAction

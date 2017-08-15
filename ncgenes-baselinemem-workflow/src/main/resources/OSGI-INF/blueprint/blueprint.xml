@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blueprint xmlns="http://www.osgi.org/xmlns/blueprint/v1.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:cm="http://aries.apache.org/blueprint/xmlns/blueprint-cm/v1.1.0" default-activation="eager">
+
+  <cm:property-placeholder persistent-id="edu.unc.mapseq.workflow.ncgenes.baseline" update-strategy="reload">
+    <cm:default-properties>
+      <cm:property name="corePoolSize" value="100" />
+      <cm:property name="maxPoolSize" value="100" />
+      <cm:property name="siteName" value="Hatteras" />
+      <cm:property name="referenceSequence" value="$NCGENES_REFERENCES_DIRECTORY/BUILD.37.1/bwa061sam0118/BUILD.37.1.sorted.shortid.fa" />
+      <cm:property name="knownVCF" value="$NCGENES_RESOURCES_DIRECTORY/gatk/bundle/1.2/b37/dbsnp_132.b37.renci.shortid.vcf" />
+      <cm:property name="sselProbe" value="4" />
+      <cm:property name="variantHeader" value="##targetInterval=/projects/mapseq/data/resources/intervals/agilent_v4_capture_region_pm_50.txt" />
+      <cm:property name="flagstatIntervalList" value="$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v4_capture_region_pm_75.shortid.interval_list" />
+      <cm:property name="depthOfCoverageIntervalList" value="$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v4_capture_region_pm_75.shortid.interval_list" />
+      <cm:property name="unifiedGenotyperIntervalList" value="$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v4_capture_region_pm_75.shortid.interval_list" />
+      <cm:property name="icSNPIntervalList" value="$NCGENES_RESOURCES_DIRECTORY/ncgenes/ic_snp_v2.list" />
+      <cm:property name="readGroupPlatform" value="ILLUMINA" />
+      <cm:property name="readGroupPlatformUnit" value="Illumina HiSeq 2000" />
+    </cm:default-properties>
+  </cm:property-placeholder>
+
+  <reference id="maPSeqConfigurationService" interface="edu.unc.mapseq.config.MaPSeqConfigurationService" />
+  <reference id="maPSeqDAOBeanService" interface="edu.unc.mapseq.dao.MaPSeqDAOBeanService" />
+
+  <bean id="NCGenesBaselineMemWorkflowBeanService" class="edu.unc.mapseq.workflow.core.WorkflowBeanServiceImpl">
+    <property name="corePoolSize" value="${corePoolSize}" />
+    <property name="maxPoolSize" value="${maxPoolSize}" />
+    <property name="maPSeqConfigurationService" ref="maPSeqConfigurationService" />
+    <property name="maPSeqDAOBeanService" ref="maPSeqDAOBeanService" />
+    <property name="attributes">
+      <map>
+        <entry key="siteName" value="${siteName}" />
+        <entry key="referenceSequence" value="${referenceSequence}" />
+        <entry key="icSNPIntervalList" value="${icSNPIntervalList}" />
+        <entry key="knownVCF" value="${knownVCF}" />
+        <entry key="sselProbe" value="${sselProbe}" />
+        <entry key="variantHeader" value="${variantHeader}" />
+        <entry key="flagstatIntervalList" value="${flagstatIntervalList}" />
+        <entry key="depthOfCoverageIntervalList" value="${depthOfCoverageIntervalList}" />
+        <entry key="unifiedGenotyperIntervalList" value="${unifiedGenotyperIntervalList}" />
+        <entry key="readGroupPlatform" value="${readGroupPlatform}" />
+        <entry key="readGroupPlatformUnit" value="${readGroupPlatformUnit}" />
+      </map>
+    </property>
+    <cm:managed-properties persistent-id="edu.unc.mapseq.workflow.ncgenes.baseline" update-strategy="container-managed" />
+  </bean>
+
+  <service ref="NCGenesBaselineMemWorkflowBeanService" interface="edu.unc.mapseq.workflow.WorkflowBeanService" />
+
+</blueprint>
