@@ -182,7 +182,8 @@ public class NCGenesBaselineMemServiceImpl implements NCGenesBaselineMemService 
 
         if (CollectionUtils.isNotEmpty(sampleFileDataSet)) {
             for (FileData fileData : sampleFileDataSet) {
-                if (fileData.getName().endsWith(suffix) && mimeType.equals(fileData.getMimeType())) {
+                if (fileData.getName().endsWith(suffix) && mimeType.equals(fileData.getMimeType())
+                        && fileData.getPath().contains(workflow.getName())) {
                     return fileData.toFile();
                 }
             }
