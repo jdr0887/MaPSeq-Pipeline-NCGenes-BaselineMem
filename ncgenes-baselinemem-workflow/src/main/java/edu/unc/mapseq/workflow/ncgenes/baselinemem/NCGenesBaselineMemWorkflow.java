@@ -80,7 +80,6 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
         String knownVCF = getWorkflowBeanService().getAttributes().get("knownVCF");
         String referenceSequence = getWorkflowBeanService().getAttributes().get("referenceSequence");
         String icSNPIntervalList = getWorkflowBeanService().getAttributes().get("icSNPIntervalList");
-        // String variantHeader = getWorkflowBeanService().getAttributes().get("variantHeader");
         String flagstatIntervalList = getWorkflowBeanService().getAttributes().get("flagstatIntervalList");
         String depthOfCoverageIntervalList = getWorkflowBeanService().getAttributes().get("depthOfCoverageIntervalList");
         String unifiedGenotyperIntervalList = getWorkflowBeanService().getAttributes().get("unifiedGenotyperIntervalList");
@@ -126,6 +125,11 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                                 depthOfCoverageIntervalList = "$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v5_egl_capture_region_pm_100.shortid.interval_list";
                                 unifiedGenotyperIntervalList = "$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v5_egl_capture_region_pm_100.shortid.interval_list";
                                 break;
+                            case "6":
+                                flagstatIntervalList = "$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v6_capture_region_pm_100.shortid.interval_list";
+                                depthOfCoverageIntervalList = "$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v6_capture_region_pm_100.shortid.interval_list";
+                                unifiedGenotyperIntervalList = "$NCGENES_RESOURCES_DIRECTORY/intervals/agilent_v6_capture_region_pm_100.shortid.interval_list";
+                                break;
                         }
                     }
                 }
@@ -138,7 +142,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
             // and the external code
             // int idx = sample.getName().lastIndexOf("-");
             // String participantId = idx != -1 ? sample.getName().substring(0, idx) : sample.getName();
-            //no longer expecting composite for participantId...can just use sample name
+            // no longer expecting composite for participantId...can just use sample name
             String participantId = sample.getName();
 
             if (readPairList.size() == 2) {
@@ -198,12 +202,9 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                     builder = SequencingWorkflowJobFactory.createJob(++count, BWAMEMCLI.class, attempt.getId(), sample.getId())
                             .siteName(siteName).numberOfProcessors(4);
                     File bwaMemOutFile = new File(outputDirectory, rootFileName + ".mem.sam");
-                    builder.addArgument(BWAMEMCLI.FASTADB, referenceSequence)
-                            .addArgument(BWAMEMCLI.FASTQ1, r1FastqFile.getAbsolutePath())
-                            .addArgument(BWAMEMCLI.FASTQ2, r2FastqFile.getAbsolutePath())
-                            .addArgument(BWAMEMCLI.THREADS, "4")
-                            .addArgument(BWAMEMCLI.VERBOSITY, "1")
-                            .addArgument(BWAMEMCLI.MARKSHORTERSPLITHITS)
+                    builder.addArgument(BWAMEMCLI.FASTADB, referenceSequence).addArgument(BWAMEMCLI.FASTQ1, r1FastqFile.getAbsolutePath())
+                            .addArgument(BWAMEMCLI.FASTQ2, r2FastqFile.getAbsolutePath()).addArgument(BWAMEMCLI.THREADS, "4")
+                            .addArgument(BWAMEMCLI.VERBOSITY, "1").addArgument(BWAMEMCLI.MARKSHORTERSPLITHITS)
                             .addArgument(BWAMEMCLI.OUTFILE, bwaMemOutFile.getAbsolutePath());
                     CondorJob bwaMemJob = builder.build();
                     logger.info(bwaMemJob.toString());
