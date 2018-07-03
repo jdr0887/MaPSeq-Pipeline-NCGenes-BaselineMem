@@ -49,6 +49,7 @@ import edu.unc.mapseq.module.sequencing.picard.PicardMarkDuplicatesCLI;
 import edu.unc.mapseq.module.sequencing.picard.PicardSortOrderType;
 import edu.unc.mapseq.module.sequencing.samtools.SAMToolsFlagstatCLI;
 import edu.unc.mapseq.module.sequencing.samtools.SAMToolsIndexCLI;
+import edu.unc.mapseq.module.sequencing.samtools.SAMToolsViewCLI;
 import edu.unc.mapseq.workflow.WorkflowException;
 import edu.unc.mapseq.workflow.sequencing.AbstractSequencingWorkflow;
 import edu.unc.mapseq.workflow.sequencing.SequencingWorkflowJobFactory;
@@ -267,6 +268,30 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                     graph.addEdge(picardMarkDuplicatesJob, samtoolsIndexJob);
 
                     // new job
+                    builder = SequencingWorkflowJobFactory.createJob(++count, SAMToolsViewCLI.class, attempt.getId(), sample.getId())
+                            .siteName(siteName);
+                    File samtoolsViewOutput = new File(outputDirectory, picardMarkDuplicatesOutput.getName().replace(".bam", ".view.bam"));
+                    builder.addArgument(SAMToolsViewCLI.INPUT, picardMarkDuplicatesOutput.getAbsolutePath())
+                            .addArgument(SAMToolsViewCLI.OUTPUT, samtoolsViewOutput.getAbsolutePath())
+                            .addArgument(SAMToolsViewCLI.OUTPUTALIGNMENTSWITHBITSPRESENTINFLAG, "0x100")
+                            .addArgument(SAMToolsViewCLI.BAMFORMAT);
+                    CondorJob samtoolsViewJob = builder.build();
+                    logger.info(samtoolsViewJob.toString());
+                    graph.addVertex(samtoolsViewJob);
+                    graph.addEdge(samtoolsIndexJob, samtoolsViewJob);
+
+                    // new job
+                    builder = SequencingWorkflowJobFactory.createJob(++count, SAMToolsIndexCLI.class, attempt.getId(), sample.getId())
+                            .siteName(siteName);
+                    File samtoolsViewIndexOutput = new File(outputDirectory, samtoolsViewOutput.getName().replace(".bam", ".bai"));
+                    builder.addArgument(SAMToolsIndexCLI.INPUT, samtoolsViewOutput.getAbsolutePath()).addArgument(SAMToolsIndexCLI.OUTPUT,
+                            samtoolsViewIndexOutput.getAbsolutePath());
+                    samtoolsIndexJob = builder.build();
+                    logger.info(samtoolsIndexJob.toString());
+                    graph.addVertex(samtoolsIndexJob);
+                    graph.addEdge(samtoolsViewJob, samtoolsIndexJob);
+
+                    // new job
                     builder = SequencingWorkflowJobFactory
                             .createJob(++count, GATKRealignerTargetCreatorCLI.class, attempt.getId(), sample.getId()).siteName(siteName)
                             .numberOfProcessors(2);
@@ -276,7 +301,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                             .addArgument(GATKRealignerTargetCreatorCLI.PHONEHOME, GATKPhoneHomeType.NO_ET.toString())
                             .addArgument(GATKRealignerTargetCreatorCLI.DOWNSAMPLINGTYPE, GATKDownsamplingType.NONE.toString())
                             .addArgument(GATKRealignerTargetCreatorCLI.KNOWN, knownVCF)
-                            .addArgument(GATKRealignerTargetCreatorCLI.INPUTFILE, picardMarkDuplicatesOutput.getAbsolutePath())
+                            .addArgument(GATKRealignerTargetCreatorCLI.INPUTFILE, samtoolsViewOutput.getAbsolutePath())
                             .addArgument(GATKRealignerTargetCreatorCLI.OUT, realignTargetCreatorOut.getAbsolutePath());
                     CondorJob gatkRealignTargetCreatorJob = builder.build();
                     logger.info(gatkRealignTargetCreatorJob.toString());
