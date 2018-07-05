@@ -9,7 +9,7 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>edu.unc.mapseq.pipelines</groupId>
   <artifactId>ncgenes-baselinemem</artifactId>
-  <version>0.6.8</version>
+  <version>0.6.9-SNAPSHOT</version>
   <packaging>pom</packaging>
   <url>https://jdr0887.github.io/MaPSeq-Pipeline-NCGenes-BaselineMem</url>
   <properties>
@@ -34,7 +34,7 @@
     <url>https://github.com/jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem</url>
     <developerConnection>scm:git:git@github.com:jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem.git</developerConnection>
     <connection>scm:git:git@github.com:jdr0887/MaPSeq-Pipeline-NCGenes-BaselineMem.git</connection>
-    <tag>ncgenes-baselinemem-0.6.8</tag>
+    <tag>HEAD</tag>
   </scm>
   <dependencyManagement>
     <dependencies>
@@ -46,17 +46,17 @@
       <dependency>
       	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
       	<artifactId>ncgenes-baselinemem-ws-api</artifactId>
-      	<version>0.6.8</version>
+      	<version>0.6.9-SNAPSHOT</version>
       </dependency>
       <dependency>
 	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
 	<artifactId>ncgenes-baselinemem-commons</artifactId>
-	<version>0.6.8</version>
+	<version>0.6.9-SNAPSHOT</version>
       </dependency>
       <dependency>
       	<groupId>edu.unc.mapseq.pipelines.ncgenes-baselinemem</groupId>
       	<artifactId>ncgenes-baselinemem-workflow</artifactId>
-      	<version>0.6.8</version>
+      	<version>0.6.9-SNAPSHOT</version>
       </dependency>
     </dependencies>
   </dependencyManagement>
