@@ -273,7 +273,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                     File samtoolsViewOutput = new File(outputDirectory, picardMarkDuplicatesOutput.getName().replace(".bam", ".view.bam"));
                     builder.addArgument(SAMToolsViewCLI.INPUT, picardMarkDuplicatesOutput.getAbsolutePath())
                             .addArgument(SAMToolsViewCLI.OUTPUT, samtoolsViewOutput.getAbsolutePath())
-                            .addArgument(SAMToolsViewCLI.OUTPUTALIGNMENTSWITHBITSPRESENTINFLAG, "0x100")
+                            .addArgument(SAMToolsViewCLI.SKIPALIGNMENTSWITHBITSPRESENTINFLAG, "0x100")
                             .addArgument(SAMToolsViewCLI.BAMFORMAT);
                     CondorJob samtoolsViewJob = builder.build();
                     logger.info(samtoolsViewJob.toString());
