@@ -316,7 +316,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                             .addArgument(GATKIndelRealignerCLI.DOWNSAMPLINGTYPE, GATKDownsamplingType.NONE.toString().toLowerCase())
                             .addArgument(GATKIndelRealignerCLI.REFERENCESEQUENCE, referenceSequence)
                             .addArgument(GATKIndelRealignerCLI.KNOWNALLELES, knownVCF)
-                            .addArgument(GATKIndelRealignerCLI.INPUT, picardMarkDuplicatesOutput.getAbsolutePath())
+                            .addArgument(GATKIndelRealignerCLI.INPUT, samtoolsViewOutput.getAbsolutePath())
                             .addArgument(GATKIndelRealignerCLI.TARGETINTERVALS, realignTargetCreatorOut.getAbsolutePath())
                             .addArgument(GATKIndelRealignerCLI.OUT, indelRealignerOut.getAbsolutePath());
                     CondorJob gatkIndelRealignerJob = builder.build();
