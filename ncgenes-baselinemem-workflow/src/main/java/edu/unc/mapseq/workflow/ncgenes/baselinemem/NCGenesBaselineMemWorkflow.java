@@ -296,7 +296,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                             .createJob(++count, GATKRealignerTargetCreatorCLI.class, attempt.getId(), sample.getId()).siteName(siteName)
                             .numberOfProcessors(2);
                     File realignTargetCreatorOut = new File(outputDirectory,
-                            picardMarkDuplicatesOutput.getName().replace(".bam", ".targets.intervals"));
+                            samtoolsViewOutput.getName().replace(".bam", ".targets.intervals"));
                     builder.addArgument(GATKRealignerTargetCreatorCLI.REFERENCESEQUENCE, referenceSequence)
                             .addArgument(GATKRealignerTargetCreatorCLI.PHONEHOME, GATKPhoneHomeType.NO_ET.toString())
                             .addArgument(GATKRealignerTargetCreatorCLI.DOWNSAMPLINGTYPE, GATKDownsamplingType.NONE.toString())
@@ -311,8 +311,7 @@ public class NCGenesBaselineMemWorkflow extends AbstractSequencingWorkflow {
                     // new job
                     builder = SequencingWorkflowJobFactory.createJob(++count, GATKIndelRealignerCLI.class, attempt.getId(), sample.getId())
                             .siteName(siteName).numberOfProcessors(2);
-                    File indelRealignerOut = new File(outputDirectory,
-                            picardMarkDuplicatesOutput.getName().replace(".bam", ".realign.bam"));
+                    File indelRealignerOut = new File(outputDirectory, samtoolsViewOutput.getName().replace(".bam", ".realign.bam"));
                     builder.addArgument(GATKIndelRealignerCLI.PHONEHOME, GATKPhoneHomeType.NO_ET.toString())
                             .addArgument(GATKIndelRealignerCLI.DOWNSAMPLINGTYPE, GATKDownsamplingType.NONE.toString().toLowerCase())
                             .addArgument(GATKIndelRealignerCLI.REFERENCESEQUENCE, referenceSequence)
